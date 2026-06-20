@@ -26,3 +26,11 @@ stages:
     - src/model_building.py
     outs:
     - model.pkl
+  model_evaluation:
+    cmd: python src/model_evaluation.py
+    deps:
+    - data/features/test_bow.csv
+    - model.pkl
+    - src/model_evaluation.py
+    outs:
+    - data/metrics.json
